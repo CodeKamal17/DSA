@@ -1,0 +1,20 @@
+//Functional Method
+//sum of n numbers
+#include<iostream>
+using namespace std;
+int f(int n)
+{
+    if(n==0)
+    {
+        return 0;
+    }
+    return n + f(n-1);
+}
+int main()
+{
+    int n;
+    cout<<"Enter the value of n: ";
+    cin>>n;
+    cout<<"Sum is: "<<f(n);
+    return 0;
+}
