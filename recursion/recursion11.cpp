@@ -20,7 +20,7 @@ int main()
     cout << "Enter a string: ";
     cin >> s;
 
-    for(int i=0; i<s.size(); i++)
+    for(int i=0; i<s.size(); i++)   //to make entered string in lowercase
     {
         s[i] = tolower(s[i]);
     }
