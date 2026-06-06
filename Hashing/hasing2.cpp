@@ -7,6 +7,13 @@ int main()
     cin>>s;
 
     //pre compute
+
+    //ieterate in the map
+    // for(auto it : map)
+    // {
+    //     cout<<it.first<<"->"<<it.second<< endl;
+    // }
+
     int hash[256] = {0};
     for(int i = 0; i<s.size(); i++)
     {
