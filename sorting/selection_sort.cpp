@@ -28,7 +28,7 @@ int main()
     {
         cin >> arr[i];
     }
-    cout << "Sorted array in ascending arder" << endl;
+    cout << "Sorted array in ascending order" << endl;
     selection_sort(arr, n);
     for(int i=0; i<n; i++)
     {
