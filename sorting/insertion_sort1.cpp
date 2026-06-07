@@ -1,21 +1,19 @@
-// sorting array in ascending order using selection sort
+// sorting array in ascending order using insertion sort
 #include<iostream>
 using namespace std;
-void selection_sort(int arr[], int n)
+void insertion_sort(int arr[], int n)
 {
-    for(int i=0; i<=n-2; i++)
+    for(int i = 0; i<=n-1; i++)
     {
-        int mini = i;
-        for(int j = i; j<=n-1; j++)
+        int j = i;
+        while(j>0 && arr[j-1]>arr[j])
         {
-            if(arr[j]<arr[mini])
-            {
-                mini = j;
-            }
+            int temp = arr[j-1];
+            arr[j-1] = arr[j];
+            arr[j] = temp;
+
+            j--;
         }
-        int temp = arr[mini];
-        arr[mini] = arr[i];
-        arr[i] = temp;
     }
 }
 int main()
@@ -30,7 +28,7 @@ int main()
         cin >> arr[i];
     }
     cout << "Sorted array in ascending order" << endl;
-    selection_sort(arr, n);
+    insertion_sort(arr, n);
     for(int i=0; i<n; i++)
     {
         cout << arr[i] << " ";
