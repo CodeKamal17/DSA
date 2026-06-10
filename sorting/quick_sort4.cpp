@@ -38,6 +38,7 @@ int main()
     int size;
     cout<<"Enter the size of the array: ";
     cin>>size;
+    if (size < 0) return 0;
 
     vector<int> arr(size);
     cout<<"Enter the array: "<<endl;
