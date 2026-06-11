@@ -1,4 +1,4 @@
-// Finding second largest element better way
+// Finding second largest element optimal way
 
 #include<iostream>
 #include<vector>
