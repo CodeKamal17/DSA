@@ -1,35 +1,35 @@
-// Finding second largest element better way
+// Finding second smallest element better way
 
 #include<iostream>
 #include<vector>
 #include<climits>
 using namespace std;
-void seclargestElement(vector <int> &arr, int n)
+void secsmallestElement(vector <int> &arr, int n)
 {
-    int largest = arr[0];
+    int smallest = arr[0];
     for(int i = 0; i<n; i++)
     {
-        if(arr[i] > largest)
+        if(arr[i] < smallest)
         {
-            largest = arr[i];
+            smallest = arr[i];
         }
     }
 
-    int seclargest = INT_MIN;
+    int secsmallest = INT_MAX;
     bool found = false;
 
     for(int i = 0; i<n; i++)
     {
-        if(arr[i] > seclargest && arr[i] != largest)
+        if(arr[i] < secsmallest && arr[i] != smallest)
         {
-            seclargest = arr[i];
+            secsmallest = arr[i];
             found = true;
         }
     }
 
     if (found) 
     {
-        cout<<seclargest;
+        cout<<secsmallest;
     } 
     else 
     {
@@ -51,8 +51,8 @@ int main()
         cin>>arr[i];
     }
 
-    cout<<"Second largest element in the array is: ";
-    seclargestElement(arr, size);
+    cout<<"Second smallest element in the array is: ";
+    secsmallestElement(arr, size);
     return 0;
 
 }
