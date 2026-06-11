@@ -4,6 +4,7 @@
 
 #include<iostream>
 #include<vector>
+#include<climits>
 using namespace std;
 
 int partition(vector<int> &arr, int low, int high)
@@ -13,12 +14,12 @@ int partition(vector<int> &arr, int low, int high)
     int j = high;
     while(i < j)
     {
-        while(arr[i] <= pivot && i <= high-1)
+        while(i <= high && arr[i] <= pivot)
         {
             i++;
         }
 
-        while(arr[j] >= pivot && j >= low+1)
+        while(j >= low && arr[j] > pivot)
         {
             j--;
         }
@@ -45,10 +46,6 @@ void quickSort(vector<int> &arr, int low, int high)
 // for finding the secondlargest element
 void secLargestElement(vector<int> &arr, int n)
 {
-    if (n < 2) {
-        cout << "Array needs at least 2 elements.";
-        return;
-    }
 
     //finding the largest one
 
@@ -67,7 +64,7 @@ void secLargestElement(vector<int> &arr, int n)
 
     //finding the second largest one
 
-    int secLargest = -1; // Initialize with a default flag value
+    int secLargest = INT_MIN; 
     bool found = false;
 
     for(int i = n-2; i>=0; i--)
@@ -93,7 +90,7 @@ void secLargestElement(vector<int> &arr, int n)
 int main()
 {
     int size;
-    cout<<"Enter the size of the array: ";
+    cout<<"Enter the size of the array(>1): ";
     cin>>size;
     if (size < 0) return 0;
 
