@@ -45,10 +45,15 @@ void quickSort(vector<int> &arr, int low, int high)
 // for finding the secondlargest element
 void secLargestElement(vector<int> &arr, int n)
 {
-    int largest = arr[0];
-    int secLargest;
+    if (n < 2) {
+        cout << "Array needs at least 2 elements.";
+        return;
+    }
 
     //finding the largest one
+
+    /*
+    int largest = arr[0];
     for(int i = 0; i<n; i++)
     {
         if(arr[i] > largest)
@@ -56,18 +61,33 @@ void secLargestElement(vector<int> &arr, int n)
             largest = arr[i];
         }
     }
+    */
+
+    int largest = arr[n-1]; // since we already did sort the array 
 
     //finding the second largest one
+
+    int secLargest = -1; // Initialize with a default flag value
+    bool found = false;
+
     for(int i = n-2; i>=0; i--)
     {
         if(arr[i] != largest)
         {
              secLargest = arr[i];
+             found = true;
              break;
         }
     }
     
-    cout<<secLargest;
+    if (found) 
+    {
+        cout << secLargest;
+    } 
+    else 
+    {
+        cout << "None (all elements are equal)";
+    }
 }
 
 int main()
@@ -87,7 +107,7 @@ int main()
     int low = 0;
     int high = (size - 1);
     quickSort(arr, low, high); // for sorting we do quicksort
-    
+
     cout<<"Second largest element is: ";
     secLargestElement(arr, size);
 
