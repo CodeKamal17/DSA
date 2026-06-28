@@ -2,17 +2,23 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-vector<int> rotateleft(vector<int> &arr, int n)
+vector<int> rotateleft(vector<int> &arr, int n, int d)
 {
-    int k;
-    cout<<"Enter the no:";
-    cin>>k;
-    for(int i=k; i<n; i++)
+    int temp[d];
+    for(int i=0; i<d; i++)
     {
-        int temp = a[]
-        arr[i-k] = arr[i];
+        temp[i] = arr[i];
     }
-    arr[n-1] = temp;
+
+    for(int i=d; i<n; i++)
+    {
+        arr[i-d] = arr[i];
+    }
+
+    for(int i=n-d; i<n; i++)
+    {
+        arr[i] = temp[i-(n-d)];
+    }
     return arr;
 }
 int main()
@@ -34,9 +40,13 @@ int main()
         cout<<arr[i]<<" ";
     }
     cout<<endl;
+
+    int d;
+    cout<<"Enter the number of places by which you want to rotate array: ";
+    cin>>d;
     
-    vector<int> rotated_arr = rotateleft(arr, n);
     cout<<"Rotated array is: "<<endl;
+    vector<int> rotated_arr = rotateleft(arr, n, d);
     for(int i=0; i<n; i++) {
         cout<<rotated_arr[i]<<" ";
     }
